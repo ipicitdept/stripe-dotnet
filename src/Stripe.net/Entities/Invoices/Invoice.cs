@@ -97,7 +97,7 @@ namespace Stripe
         #endregion
 
         [JsonProperty("customer_address")]
-        public Address CustomerAddress { get; set; }
+        public CustomerAddress CustomerAddress { get; set; }
 
         [JsonProperty("customer_email")]
         public string CustomerEmail { get; set; }
@@ -109,7 +109,7 @@ namespace Stripe
         public string CustomerPhone { get; set; }
 
         [JsonProperty("customer_shipping")]
-        public Shipping CustomerShipping { get; set; }
+        public CustomerShipping CustomerShipping { get; set; }
 
         [JsonProperty("customer_tax_exempt")]
         public string CustomerTaxExempt { get; set; }
@@ -117,8 +117,7 @@ namespace Stripe
         [JsonProperty("customer_tax_ids")]
         public List<InvoiceCustomerTaxId> CustomerTaxIds { get; set; }
 
-        #region Expandable DefaultPaymentMethod
-
+        #region Expandable Default Payment Method
         [JsonIgnore]
         public string DefaultPaymentMethodId
         {
@@ -138,7 +137,7 @@ namespace Stripe
         internal ExpandableField<PaymentMethod> InternalDefaultPaymentMethod { get; set; }
         #endregion
 
-        #region Expandable DefaultSource
+        #region Expandable Default Source
         [JsonIgnore]
         public string DefaultSourceId
         {
@@ -160,6 +159,9 @@ namespace Stripe
 
         [JsonProperty("default_tax_rates")]
         public List<TaxRate> DefaultTaxRates { get; set; }
+
+        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
+        public bool? Deleted { get; set; }
 
         [JsonProperty("description")]
         public string Description { get; set; }
@@ -202,8 +204,7 @@ namespace Stripe
         [JsonProperty("paid")]
         public bool Paid { get; set; }
 
-        #region Expandable PaymentIntent
-
+        #region Expandable Payment Intent
         [JsonIgnore]
         public string PaymentIntentId
         {
@@ -232,10 +233,10 @@ namespace Stripe
         public DateTime PeriodStart { get; set; }
 
         [JsonProperty("post_payment_credit_notes_amount")]
-        public long? PostPaymentCreditNotesAmount { get; set; }
+        public long PostPaymentCreditNotesAmount { get; set; }
 
         [JsonProperty("pre_payment_credit_notes_amount")]
-        public long? PrePaymentCreditNotesAmount { get; set; }
+        public long PrePaymentCreditNotesAmount { get; set; }
 
         [JsonProperty("receipt_number")]
         public string ReceiptNumber { get; set; }
@@ -273,8 +274,7 @@ namespace Stripe
         #endregion
 
         [JsonProperty("subscription_proration_date")]
-        [JsonConverter(typeof(DateTimeConverter))]
-        public DateTime SubscriptionProrationDate { get; set; }
+        public long SubscriptionProrationDate { get; set; }
 
         [JsonProperty("subtotal")]
         public long Subtotal { get; set; }
@@ -282,21 +282,20 @@ namespace Stripe
         [JsonProperty("tax")]
         public long? Tax { get; set; }
 
-        [Obsolete("Use DefaultTaxRates instead")]
         [JsonProperty("tax_percent")]
         public decimal? TaxPercent { get; set; }
 
         [JsonProperty("threshold_reason")]
         public InvoiceThresholdReason ThresholdReason { get; set; }
 
+        [JsonProperty("total")]
+        public long Total { get; set; }
+
         [JsonProperty("total_tax_amounts")]
-        public List<InvoiceTaxAmount> TotalTaxAmounts { get; set; }
+        public List<InvoiceTotalTaxAmount> TotalTaxAmounts { get; set; }
 
         [JsonProperty("transfer_data")]
         public InvoiceTransferData TransferData { get; set; }
-
-        [JsonProperty("total")]
-        public long Total { get; set; }
 
         [JsonProperty("webhooks_delivered_at")]
         [JsonConverter(typeof(DateTimeConverter))]

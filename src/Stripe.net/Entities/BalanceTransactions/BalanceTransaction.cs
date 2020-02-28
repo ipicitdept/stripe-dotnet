@@ -37,7 +37,7 @@ namespace Stripe
         public long Fee { get; set; }
 
         [JsonProperty("fee_details")]
-        public List<Fee> FeeDetails { get; set; }
+        public List<BalanceTransactionFeeDetail> FeeDetails { get; set; }
 
         [JsonProperty("net")]
         public long Net { get; set; }
@@ -46,7 +46,6 @@ namespace Stripe
         public string ReportingCategory { get; set; }
 
         #region Expandable Source
-
         [JsonIgnore]
         public string SourceId
         {
@@ -55,15 +54,15 @@ namespace Stripe
         }
 
         [JsonIgnore]
-        public IBalanceTransactionSource Source
+        public BalanceTransactionSource Source
         {
             get => this.InternalSource?.ExpandedObject;
             set => this.InternalSource = SetExpandableFieldObject(value, this.InternalSource);
         }
 
         [JsonProperty("source")]
-        [JsonConverter(typeof(ExpandableFieldConverter<IBalanceTransactionSource>))]
-        internal ExpandableField<IBalanceTransactionSource> InternalSource { get; set; }
+        [JsonConverter(typeof(ExpandableFieldConverter<BalanceTransactionSource>))]
+        internal ExpandableField<BalanceTransactionSource> InternalSource { get; set; }
         #endregion
 
         [JsonProperty("status")]

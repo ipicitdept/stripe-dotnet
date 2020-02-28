@@ -5,12 +5,7 @@ namespace Stripe.Issuing
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class TransactionListOptions : ListOptionsWithCreated
+    public class TransactionListOptions : BaseOptions
     {
-        [JsonProperty("cardholder")]
-        public string Cardholder { get; set; }
-
-        [JsonProperty("card")]
-        public string Card { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class BankAccount : StripeEntity<BankAccount>, IHasId, IHasMetadata, IHasObject, IExternalAccount, IPaymentSource
+    public class BankAccount : StripeEntity<BankAccount>, IExternalAccount, IHasId, IHasMetadata, IHasObject, IPaymentSource
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -69,7 +69,7 @@ namespace Stripe
         #endregion
 
         [JsonProperty("default_for_currency")]
-        public bool DefaultForCurrency { get; set; }
+        public bool? DefaultForCurrency { get; set; }
 
         [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }

@@ -5,7 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class Dispute : StripeEntity<Dispute>, IHasId, IHasMetadata, IHasObject, IBalanceTransactionSource
+    public class Dispute : StripeEntity<Dispute>, IBalanceTransactionSource, IHasId, IHasMetadata, IHasObject
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -14,7 +14,7 @@ namespace Stripe
         public string Object { get; set; }
 
         [JsonProperty("amount")]
-        public long? Amount { get; set; }
+        public long Amount { get; set; }
 
         [JsonProperty("balance_transactions")]
         public List<BalanceTransaction> BalanceTransactions { get; set; }
@@ -61,7 +61,10 @@ namespace Stripe
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
 
-        #region Expandable PaymentIntent
+        [JsonProperty("network_reason_code")]
+        public string NetworkReasonCode { get; set; }
+
+        #region Expandable Payment Intent
         [JsonIgnore]
         public string PaymentIntentId
         {

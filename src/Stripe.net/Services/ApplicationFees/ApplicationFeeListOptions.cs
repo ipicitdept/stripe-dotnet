@@ -5,9 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class ApplicationFeeListOptions : ListOptionsWithCreated
+    public class ApplicationFeeListOptions : BaseOptions
     {
-        [JsonProperty("charge")]
-        public string Charge { get; set; }
     }
 }

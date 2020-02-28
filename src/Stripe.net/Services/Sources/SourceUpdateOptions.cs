@@ -7,6 +7,9 @@ namespace Stripe
 
     public class SourceUpdateOptions : BaseOptions, IHasMetadata
     {
+        [JsonProperty("amount")]
+        public long Amount { get; set; }
+
         [JsonProperty("mandate")]
         public SourceMandateOptions Mandate { get; set; }
 
@@ -18,8 +21,5 @@ namespace Stripe
 
         [JsonProperty("source_order")]
         public SourceSourceOrderOptions SourceOrder { get; set; }
-
-        [JsonProperty("card")]
-        public SourceCardUpdateOptions Card { get; set; }
     }
 }

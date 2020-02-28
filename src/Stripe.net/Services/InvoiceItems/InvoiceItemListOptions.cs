@@ -5,15 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class InvoiceItemListOptions : ListOptionsWithCreated
+    public class InvoiceItemListOptions : BaseOptions
     {
-        [JsonProperty("customer")]
-        public string Customer { get; set; }
-
-        [JsonProperty("invoice")]
-        public string Invoice { get; set; }
-
-        [JsonProperty("pending")]
-        public bool? Pending { get; set; }
     }
 }

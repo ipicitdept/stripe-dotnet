@@ -42,13 +42,12 @@ namespace Stripe
         public Dictionary<string, string> Metadata { get; set; }
 
         [JsonProperty("package_dimensions")]
-        public PackageDimensions PackageDimensions { get; set; }
+        public SkuPackageDimensions PackageDimensions { get; set; }
 
         [JsonProperty("price")]
         public long Price { get; set; }
 
         #region Expandable Product
-
         [JsonIgnore]
         public string ProductId
         {

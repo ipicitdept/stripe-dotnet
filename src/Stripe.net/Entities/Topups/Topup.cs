@@ -5,7 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class Topup : StripeEntity<Topup>, IHasId, IHasMetadata, IHasObject, IBalanceTransactionSource
+    public class Topup : StripeEntity<Topup>, IBalanceTransactionSource, IHasId, IHasMetadata, IHasObject
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -17,9 +17,12 @@ namespace Stripe
         public long Amount { get; set; }
 
         #region Expandable Balance Transaction
-
         [JsonIgnore]
-        public string BalanceTransactionId { get; set; }
+        public string BalanceTransactionId
+        {
+            get => this.InternalBalanceTransaction?.Id;
+            set => this.InternalBalanceTransaction = SetExpandableFieldId(value, this.InternalBalanceTransaction);
+        }
 
         [JsonIgnore]
         public BalanceTransaction BalanceTransaction
@@ -44,8 +47,7 @@ namespace Stripe
         public string Description { get; set; }
 
         [JsonProperty("expected_availability_date")]
-        [JsonConverter(typeof(DateTimeConverter))]
-        public DateTime? ExpectedAvailabilityDate { get; set; }
+        public long? ExpectedAvailabilityDate { get; set; }
 
         [JsonProperty("failure_code")]
         public string FailureCode { get; set; }

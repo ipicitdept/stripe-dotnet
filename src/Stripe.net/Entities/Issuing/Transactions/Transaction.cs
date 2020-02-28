@@ -5,7 +5,7 @@ namespace Stripe.Issuing
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class Transaction : StripeEntity<Transaction>, IHasId, IHasMetadata, IHasObject, IBalanceTransactionSource
+    public class Transaction : StripeEntity<Transaction>, IBalanceTransactionSource, IHasId, IHasMetadata, IHasObject
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -36,7 +36,7 @@ namespace Stripe.Issuing
         internal ExpandableField<Authorization> InternalAuthorization { get; set; }
         #endregion
 
-        #region Expandable BalanceTransaction
+        #region Expandable Balance Transaction
         [JsonIgnore]
         public string BalanceTransactionId
         {

@@ -5,12 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class CreditNoteListOptions : ListOptions
+    public class CreditNoteListOptions : BaseOptions
     {
-        [JsonProperty("customer")]
-        public string Customer { get; set; }
-
-        [JsonProperty("invoice")]
-        public string Invoice { get; set; }
     }
 }

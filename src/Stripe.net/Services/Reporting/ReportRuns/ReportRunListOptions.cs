@@ -5,7 +5,7 @@ namespace Stripe.Reporting
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class ReportRunListOptions : ListOptionsWithCreated
+    public class ReportRunListOptions : BaseOptions
     {
     }
 }

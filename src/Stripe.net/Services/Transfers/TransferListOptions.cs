@@ -5,12 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class TransferListOptions : ListOptionsWithCreated
+    public class TransferListOptions : BaseOptions
     {
-        [JsonProperty("destination")]
-        public string Destination { get; set; }
-
-        [JsonProperty("transfer_group")]
-        public string TransferGroup { get; set; }
     }
 }

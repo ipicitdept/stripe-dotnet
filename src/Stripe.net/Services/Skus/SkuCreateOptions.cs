@@ -5,19 +5,19 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class SkuCreateOptions : BaseOptions, IHasId, IHasMetadata
+    public class SkuCreateOptions : BaseOptions, IHasMetadata
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
         [JsonProperty("active")]
-        public bool? Active { get; set; }
+        public bool Active { get; set; }
 
         [JsonProperty("attributes")]
         public Dictionary<string, string> Attributes { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
-
-        [JsonProperty("id")]
-        public string Id { get; set; }
 
         [JsonProperty("image")]
         public string Image { get; set; }
@@ -29,10 +29,10 @@ namespace Stripe
         public Dictionary<string, string> Metadata { get; set; }
 
         [JsonProperty("package_dimensions")]
-        public PackageDimensionOptions PackageDimensions { get; set; }
+        public SkuPackageDimensionsOptions PackageDimensions { get; set; }
 
         [JsonProperty("price")]
-        public long? Price { get; set; }
+        public long Price { get; set; }
 
         [JsonProperty("product")]
         public string Product { get; set; }

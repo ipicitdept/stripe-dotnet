@@ -5,15 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class EventListOptions : ListOptionsWithCreated
+    public class EventListOptions : BaseOptions
     {
-        [JsonProperty("delivery_success")]
-        public bool? DeliverySuccess { get; set; }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
-        [JsonProperty("types")]
-        public List<string> Types { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace Stripe
     public class SetupIntentCreateOptions : BaseOptions, IHasMetadata
     {
         [JsonProperty("confirm")]
-        public bool? Confirm { get; set; }
+        public bool Confirm { get; set; }
 
         [JsonProperty("customer")]
         public string Customer { get; set; }

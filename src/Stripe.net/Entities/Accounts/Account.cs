@@ -48,7 +48,7 @@ namespace Stripe
         public string Email { get; set; }
 
         [JsonProperty("external_accounts")]
-        public StripeList<IExternalAccount> ExternalAccounts { get; set; }
+        public StripeList<todo-thingy> ExternalAccounts { get; set; }
 
         [JsonProperty("individual")]
         public Person Individual { get; set; }
@@ -70,5 +70,5 @@ namespace Stripe
 
         [JsonProperty("type")]
         public string Type { get; set; }
-     }
+    }
 }

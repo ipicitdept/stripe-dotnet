@@ -5,12 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class PlanListOptions : ListOptionsWithCreated
+    public class PlanListOptions : BaseOptions
     {
-        [JsonProperty("active")]
-        public bool? Active { get; set; }
-
-        [JsonProperty("product")]
-        public string Product { get; set; }
     }
 }

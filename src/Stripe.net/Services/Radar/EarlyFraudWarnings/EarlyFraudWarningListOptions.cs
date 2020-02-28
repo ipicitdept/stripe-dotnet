@@ -5,9 +5,7 @@ namespace Stripe.Radar
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class EarlyFraudWarningListOptions : ListOptions
+    public class EarlyFraudWarningListOptions : BaseOptions
     {
-        [JsonProperty("charge")]
-        public string Charge { get; set; }
     }
 }

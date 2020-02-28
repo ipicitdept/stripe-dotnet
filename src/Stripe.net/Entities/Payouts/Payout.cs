@@ -5,7 +5,7 @@ namespace Stripe
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
 
-    public class Payout : StripeEntity<Payout>, IHasId, IHasMetadata, IHasObject, IBalanceTransactionSource
+    public class Payout : StripeEntity<Payout>, IBalanceTransactionSource, IHasId, IHasMetadata, IHasObject
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -62,19 +62,18 @@ namespace Stripe
         }
 
         [JsonIgnore]
-        public IExternalAccount Destination
+        public ExternalAccount Destination
         {
             get => this.InternalDestination?.ExpandedObject;
             set => this.InternalDestination = SetExpandableFieldObject(value, this.InternalDestination);
         }
 
         [JsonProperty("destination")]
-        [JsonConverter(typeof(ExpandableFieldConverter<IExternalAccount>))]
-        internal ExpandableField<IExternalAccount> InternalDestination { get; set; }
+        [JsonConverter(typeof(ExpandableFieldConverter<ExternalAccount>))]
+        internal ExpandableField<ExternalAccount> InternalDestination { get; set; }
         #endregion
 
         #region Expandable Failure Balance Transaction
-
         [JsonIgnore]
         public string FailureBalanceTransactionId
         {
@@ -118,7 +117,6 @@ namespace Stripe
         [JsonProperty("status")]
         public string Status { get; set; }
 
-        // example: bank_account
         [JsonProperty("type")]
         public string Type { get; set; }
     }

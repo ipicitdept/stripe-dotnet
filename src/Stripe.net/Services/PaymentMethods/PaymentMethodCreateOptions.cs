@@ -8,22 +8,22 @@ namespace Stripe
     public class PaymentMethodCreateOptions : BaseOptions, IHasMetadata
     {
         [JsonProperty("au_becs_debit")]
-        public PaymentMethodAuBecsDebitCreateOptions AuBecsDebit { get; set; }
+        public PaymentMethodAuBecsDebitOptions AuBecsDebit { get; set; }
 
         [JsonProperty("billing_details")]
         public BillingDetailsOptions BillingDetails { get; set; }
 
         [JsonProperty("card")]
-        public PaymentMethodCardCreateOptions Card { get; set; }
+        public todo-thingy Card { get; set; }
 
         [JsonProperty("customer")]
         public string Customer { get; set; }
 
         [JsonProperty("fpx")]
-        public PaymentMethodFpxCreateOptions Fpx { get; set; }
+        public PaymentMethodFpxOptions Fpx { get; set; }
 
         [JsonProperty("ideal")]
-        public PaymentMethodIdealCreateOptions Ideal { get; set; }
+        public PaymentMethodIdealOptions Ideal { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
@@ -32,7 +32,7 @@ namespace Stripe
         public string PaymentMethod { get; set; }
 
         [JsonProperty("sepa_debit")]
-        public PaymentMethodSepaDebitCreateOptions SepaDebit { get; set; }
+        public PaymentMethodSepaDebitOptions SepaDebit { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

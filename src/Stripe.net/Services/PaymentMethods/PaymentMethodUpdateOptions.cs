@@ -11,9 +11,12 @@ namespace Stripe
         public BillingDetailsOptions BillingDetails { get; set; }
 
         [JsonProperty("card")]
-        public PaymentMethodCardUpdateOptions Card { get; set; }
+        public PaymentMethodCardOptions Card { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }
+
+        [JsonProperty("sepa_debit")]
+        public PaymentMethodSepaDebitOptions SepaDebit { get; set; }
     }
 }

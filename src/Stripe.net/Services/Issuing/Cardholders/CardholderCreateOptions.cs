@@ -23,7 +23,7 @@ namespace Stripe.Issuing
         public CardholderIndividualOptions Individual { get; set; }
 
         [JsonProperty("is_default")]
-        public bool? IsDefault { get; set; }
+        public bool IsDefault { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }

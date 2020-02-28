@@ -7,7 +7,5 @@ namespace Stripe
 
     public class SourceGetOptions : BaseOptions
     {
-        [JsonProperty("client_secret")]
-        public string ClientSecret { get; set; }
     }
 }
