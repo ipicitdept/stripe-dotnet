@@ -89,5 +89,11 @@ namespace Stripe
         /// </summary>
         [JsonProperty("wallet")]
         public ChargePaymentMethodDetailsCardWallet Wallet { get; set; }
+        
+        [JsonProperty("iin")]
+        public string IIN { get; set; }
+
+        [JsonProperty("issuer")]
+        public string Issuer { get; set; }
     }
 }
